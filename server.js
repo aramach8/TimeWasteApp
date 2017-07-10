@@ -20,6 +20,7 @@ app.get('/', function(req, res){
 
 //Authentication
 app.post('/api/user/signup', authenticationController.signup);
+app.post('/api/user/login', authenticationController.login);
 
 app.listen('3000', function(){
    console.log("Listening for localhost 3000"); 

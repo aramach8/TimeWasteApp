@@ -7,3 +7,15 @@ module.exports.signup = function(req, res){
     user.save();
     res.json(req.body);
 }
+
+module.exports.login = function(req, res){
+    User.find(req.body, function(err, results){
+        if(err) {
+            console.log("Errored Out");
+        } 
+        
+        if(results && results.length === 1) {
+            res.json(req.body.email);
+        }
+    })
+}
