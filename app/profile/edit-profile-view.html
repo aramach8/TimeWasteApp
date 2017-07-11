@@ -1,6 +1,9 @@
 <div class="col-sm-8 col-sm-offset-2">
 
-    <div class="row">Image upload will go here</div>
+    <div class="row">
+        <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+        ngf-accept="'image/*'">Select</div>
+    </div>
     <br>
     <div class="row">
         <input class="form-control" ng-model="user.username">
