@@ -5,8 +5,8 @@
         <link rel="stylesheet" href="app/css/main.css">
     </head>
      <nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavigationController">
-            <div class="container">
-                <div> <input type="text" ng-model="login.email"> <input type="password" ng-model="login.password"> <button ng-click="logUserIn()">Login</button> <a ui-sref="signUp">Create An Account</a>
+            <div class="container col-sm-offset-6 navdiv">
+                <div> <input type="text" ng-model="login.email" placeholder="your email id"> <input type="password" ng-model="login.password" placeholder="your password"> <button ng-click="logUserIn()">Login</button> <a ui-sref="signUp">Create An Account</a>
                 </div>
             </div>
         </nav>
