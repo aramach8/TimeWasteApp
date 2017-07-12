@@ -8,6 +8,7 @@ var path = require('path');
 var app = express();
 var authenticationController = require('./server/controllers/authentication-controller');
 var profileController = require('./server/controllers/profile-controller');
+var wasteController = require('./server/controllers/waste-controller');
 
 mongoose.connect('mongodb://localhost:27017/time-waste');
 
@@ -31,6 +32,9 @@ app.post('/api/user/login', authenticationController.login);
 app.post('/api/profile/editPhoto', multipartMiddleWare, profileController.updatePhoto);
 app.post('/api/profile/editUserName', profileController.updateUserName);
 app.post('/api/profile/editBio', profileController.updateBio);
+
+//Waste
+app.post('/api/waste/post', wasteController.postWaste);
 
 app.listen('3000', function(){
    console.log("Listening for localhost 3000"); 
