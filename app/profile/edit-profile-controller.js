@@ -27,5 +27,29 @@
                 })
             }
         };
+        
+        $scope.updateUserName = function() {
+            var request = {
+                userId: $scope.user._id,
+                username: $scope.user.username
+            };
+            $http.post('api/profile/editUserName', request).then(function(response){
+                console.log("username Success");
+            }).catch(function(error){
+                 console.log("username Error");
+            });
+        };
+        
+        $scope.updateBio = function() {
+            var request = {
+                userId: $scope.user._id,
+                bio: $scope.user.bio
+            };
+            $http.post('api/profile/editBio', request).then(function(response){
+                 console.log("bio Success");
+            }).catch(function(error){
+                console.log("bio Error");
+            });
+        }
     }]);
 }());

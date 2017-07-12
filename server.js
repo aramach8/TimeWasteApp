@@ -29,6 +29,8 @@ app.post('/api/user/login', authenticationController.login);
 
 //Profile
 app.post('/api/profile/editPhoto', multipartMiddleWare, profileController.updatePhoto);
+app.post('/api/profile/editUserName', profileController.updateUserName);
+app.post('/api/profile/editBio', profileController.updateBio);
 
 app.listen('3000', function(){
    console.log("Listening for localhost 3000"); 

@@ -25,13 +25,60 @@ module.exports.updatePhoto = function(req, res){
                 user.image = savePath;
                 user.save(function(err){
                     if(err){
-                        console.log("failed save");
+                        console.log("photo save failed");
+                        //res.json(status: 500);
                     } else {
-                        console.log("save successful");
+                        console.log("photot save successful");
+                        //res.json(status: 200);
                     }
                 })
             })
-            //console.log("file moved");
         }
     })
+};
+
+module.exports.updateUserName = function(req, res){
+    var userId = req.body.userId;
+    var username = req.body.username;
+    console.log("Updating username: "+username+" for id: "+userId);
+    User.findById(userId, function(err, userData){
+        if(userData){
+            var user =  userData;
+            user.username = username;
+            user.save(function(err){
+               if(err){
+                   console.log("username save failed");
+                   //res.json(status: 500);
+               } else {
+                   console.log("username save successful");
+                   //res.json(status: 200);
+               }           
+            });
+        }else{
+            console.log("No record with id found for username update");
+        }           
+    });
+};
+
+module.exports.updateBio = function(req, res){
+    var userId = req.body.userId;
+    var bio = req.body.bio;
+    console.log("Updating bio: "+bio+" for id: "+userId);
+    User.findById(userId, function(err, userData){
+        if(userData){
+            var user =  userData;
+            user.bio = bio;
+            user.save(function(err){
+               if(err){
+                   console.log("bio save failed");
+                   //res.json(status: 500);
+               } else {
+                   console.log("bio save successful");
+                   //res.json(status: 200);
+               }           
+            });
+        }else{
+            console.log("No record with id found for bio update");
+        }           
+    });
 };
