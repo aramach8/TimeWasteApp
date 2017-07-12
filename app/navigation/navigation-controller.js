@@ -16,5 +16,11 @@
                 console.log(error);
             });
         };
+        
+        $scope.logout = function(){
+            localStorage.clear();
+            $scope.loggedIn = false;
+        };
+        
     }]);
 }());
